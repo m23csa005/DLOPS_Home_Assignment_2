@@ -14,42 +14,36 @@ def tanh(x):
     return np.tanh(x)
 
 # Generate data
-x = np.linspace(-5, 5, 100)
-y_sigmoid = sigmoid(x)
-y_relu = relu(x)
-y_leaky_relu = leaky_relu(x)
-y_tanh = tanh(x)
+random_values = [-3.5, -1.2, 0, 2.8, -4.1, 1.5, -0.7, 3.2, -2.4, 4.6]
+y_relu = []
+y_leaky_relu = []
+y_tanh = []
+
+for i in range(len(random_values)):
+    y_relu.append(relu(random_values[i]))
+    y_leaky_relu.append(leaky_relu(random_values[i]))
+    y_tanh.append(tanh(random_values[i]))
 
 # Plotting
-plt.figure(figsize=(12, 8))
 
-plt.subplot(2, 2, 1)
-plt.plot(x, y_sigmoid, label='Sigmoid')
-plt.title('Sigmoid Activation Function')
-plt.xlabel('Input')
-plt.ylabel('Output')
-plt.legend()
-
-plt.subplot(2, 2, 2)
-plt.plot(x, y_relu, label='ReLU', color='orange')
+plt.scatter(random_values, y_relu, label='ReLU', color='orange')
 plt.title('ReLU Activation Function')
 plt.xlabel('Input')
 plt.ylabel('Output')
-plt.legend()
+plt.show()
 
-plt.subplot(2, 2, 3)
-plt.plot(x, y_leaky_relu, label='Leaky ReLU', color='green')
+
+plt.scatter(random_values, y_leaky_relu, label='Leaky ReLU', color='green')
 plt.title('Leaky ReLU Activation Function')
 plt.xlabel('Input')
 plt.ylabel('Output')
-plt.legend()
+plt.show()
 
-plt.subplot(2, 2, 4)
-plt.plot(x, y_tanh, label='Tanh', color='red')
+
+plt.scatter(random_values, y_tanh, label='Tanh', color='red')
 plt.title('Tanh Activation Function')
 plt.xlabel('Input')
 plt.ylabel('Output')
-plt.legend()
-
-plt.tight_layout()
 plt.show()
+
+
